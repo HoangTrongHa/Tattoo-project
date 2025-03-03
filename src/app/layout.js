@@ -1,6 +1,9 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import GlobalHeader from '@/components/organisms/GlobalHeader';
+import GlobalFooter from '@/components/organisms/GlobalFooter';
 
+import logo from '@/assets/Logo.png';
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -17,12 +20,35 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
+  // const logos = {
+  //   logoSrc: logo.src, // Sử dụng thuộc tính src của hình ảnh đã import
+  // };
   return (
     <html lang="en">
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+          rel="stylesheet"
+        />
+        <link 
+          href="https://blogfonts.com/css/aWQ9MjA1ODE0JnN1Yj04MTQmYz1hJnR0Zj1hZW9uaWt0cmlhbC1yZWd1bGFyLm90ZiZuPWFlb25pay10cmlhbA/Aeonik%20TRIAL.otf" 
+          rel="stylesheet" 
+          type="text/css" 
+        />
+        <link 
+          href="https://blogfonts.com/css/aWQ9MjA1ODE0JnN1Yj04MTQmYz1hJnR0Zj1hZW9uaWt0cmlhbC1ib2xkLm90ZiZuPWFlb25pay10cmlhbC01/Aeonik%20TRIAL.otf" 
+          rel="stylesheet" 
+          type="text/css" 
+        />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <GlobalHeader logos={{logoSrc: logo.src}} />
         {children}
+        < GlobalFooter />
       </body>
     </html>
   );

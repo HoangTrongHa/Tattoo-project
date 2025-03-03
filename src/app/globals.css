@@ -1,13 +1,16 @@
 @import "tailwindcss";
-
 @theme {
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
-
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  /* button */
+  --button-default-color : #171717;
+  --button-default-background: #ffffff;
+  --button-default-background-success : #455927;
+
 }
 
 @media (prefers-color-scheme: dark) {
@@ -21,4 +24,38 @@ body {
   color: var(--foreground);
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+}
+
+.MuiDrawer-modal .MuiDrawer-paperAnchorRight{
+  width: 30%;
+}
+
+h2 {
+  color: #FFF;
+  text-align: center;
+  font-family: 'Test Söhne', 'Inter', sans-serif;
+  font-size: 96px;
+  font-style: normal;
+  font-weight: 900;
+  line-height: 88.5%; /* 84.96px */
+  text-transform: uppercase;
+}
+
+p {
+  color: #FFF;
+  text-align: center;
+  font-family: "aeonik-trial";
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 28px; /* 140% */
+}
+
+.font-aeonik {
+  font-family: "aeonik-trial";
+}
+
+.font-aeonik-bold {
+  font-family: 'aeonik-trial-5', sans-serif;
 }
