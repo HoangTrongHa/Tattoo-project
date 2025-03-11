@@ -1,5 +1,8 @@
 'use client'
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { setSelectedPart } from '@/store/selectedPartSlice';
+import { useRouter } from 'next/navigation';
 import Button from '@/components/atoms/Button'
 
 const bodyParts = [
@@ -162,6 +165,8 @@ const bodyParts = [
 
 export default function HumanBody() {
   const [hoveredPart, setHoveredPart] = useState(null);
+  const dispatch = useDispatch();
+  const router = useRouter();
 
   return (
     <div className='bg-[#455927]'>
@@ -180,11 +185,15 @@ export default function HumanBody() {
                   fill={hoveredPart === part.id ? 'rgba(255, 255, 255, 0.51)' : '#fff'}
                   onMouseEnter={() => setHoveredPart(part.id)}
                   onMouseLeave={() => setHoveredPart(null)}
+                  onClick={() => {
+                    dispatch(setSelectedPart(part.label));
+                    router.push('/booking/step3');
+                  }}
                   className="transition-all duration-200 cursor-pointer"
                 /> 
             )}
           </svg>
-          <div className="mt-[40px] mb-[120px] flex w-full justify-around">
+          <div className="mt-[40px] flex w-full justify-around">
             <div className="w-[45%] text-center px-[25px] py-[16px] self-stretch bg-white text-[#000] font-extrabold text-[30px] font-aeonik-bold">
               In Front
             </div>
@@ -194,6 +203,15 @@ export default function HumanBody() {
           </div>
         </div>
       </div>
+      <div className="pb-[64px] flex justify-end">
+            <Button 
+              color="primary" 
+              className="!mr-5 w-[100px]" 
+              onClick={() => router.push('/booking/step1')}
+            >
+              Back
+            </Button>
+          </div>
     </div>
   );
 }

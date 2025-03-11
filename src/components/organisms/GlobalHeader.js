@@ -10,20 +10,20 @@ import ListItem from '@mui/material/ListItem'
 import ListItemText from '@mui/material/ListItemText'
 
 const Header = styled('header')({
-  position: 'fixed',
+  position: 'absolute',
   top: 0,
   width: '100%',
   display: 'flex',
   justifyContent: 'space-between',
   alignItems: 'center',
   padding: '10px 20px',
-  margin: '28px 0', // Add margin
   background: 'transparent',
   zIndex: 1000,
+
 })
 
 const Logo = styled(Image)({
-  width: '237px', // Adjust the size as needed
+  width: '138px', // Adjust the size as needed
 })
 
 export default function GlobalHeader({ logos }) {

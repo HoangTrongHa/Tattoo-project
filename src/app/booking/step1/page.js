@@ -97,7 +97,7 @@ export default function BookingStep1() {
               sx={{ px: '25px', py: '16px', fontSize: '30px' }}
               onClick={scrollToSection2}
             >
-              <div className='font-aeonik-bold font-extrabold'>
+              <div className='font-aeonik-bold font-extrabold capitalize'>
                 Start!
               </div>
             </Button>

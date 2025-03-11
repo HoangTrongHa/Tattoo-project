@@ -14,12 +14,15 @@
     "@mui/icons-material": "^6.4.6",
     "@mui/material": "^6.4.6",
     "@mui/styled-engine-sc": "^6.4.6",
+    "@reduxjs/toolkit": "^2.6.1",
     "jquery": "^3.7.1",
     "next": "15.2.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "react-dropzone": "^14.3.8",
     "react-multi-carousel": "^2.8.5",
     "react-owl-carousel": "^2.3.3",
+    "react-redux": "^9.2.0",
     "styled-components": "^6.1.15"
   },
   "devDependencies": {

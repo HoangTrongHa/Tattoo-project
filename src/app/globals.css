@@ -34,7 +34,7 @@ body {
 h2 {
   color: #FFF;
   text-align: center;
-  font-family: 'Test Söhne', 'Inter', sans-serif;
+  font-family: 'TestSohneBreit-Extrafett', sans-serif;
   font-size: 96px;
   font-style: normal;
   font-weight: 900;
@@ -42,20 +42,250 @@ h2 {
   text-transform: uppercase;
 }
 
-p {
-  color: #FFF;
+p, div {
   text-align: center;
-  font-family: "aeonik-trial";
-  font-size: 20px;
+  font-family: "Aeonik TRIAL Lighter",sans-serif;
   font-style: normal;
   font-weight: 400;
   line-height: 28px; /* 140% */
 }
 
+p {
+  font-size: 20px;
+}
+
 .font-aeonik {
-  font-family: "aeonik-trial";
+  font-family: "Aeonik TRIAL", sans-serif;
 }
 
 .font-aeonik-bold {
-  font-family: 'aeonik-trial-5', sans-serif;
+  font-family: "Aeonik TRIAL BOLD", sans-serif;
+}
+
+/* Buch: Regular (Bình thường).
+Leicht: Light (Nhẹ).
+Halbfett: Semi-Bold (Nửa đậm).
+Fett: Bold (Đậm).
+Extrafett: Extra Bold (Rất đậm).
+Kursiv/Italic: Nghiêng.
+Monospace: Font có chiều rộng ký tự đều. */
+
+@font-face {
+  font-family: "Aeonik TRIAL";
+  src: url("../assets/Fonts/Aeonik-Regular.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Aeonik TRIAL BOLD";
+  src: url("../assets/Fonts/Aeonik-Bold.otf") format("opentype");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Aeonik TRIAL Lighter";
+  src: url("../assets/Fonts/Aeonik-Light.otf") format("opentype");
+  font-weight: lighter;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Aeonik TRIAL";
+  src: url("../assets/Fonts/Aeonik-RegularItalic.otf") format("opentype");
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Aeonik TRIAL";
+  src: url("../assets/Fonts/Aeonik-BoldItalic.otf") format("opentype");
+  font-weight: bold;
+  font-style: italic;
+}
+/* TestSohneBreit */
+@font-face {
+  font-family: "TestSohneBreit-Buch";
+  src: url("../assets/Fonts/TestSohneBreit-Buch-BF663d89ca2ff42.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "TestSohneBreit-Dreiviertelfett";
+  src: url("../assets/Fonts/TestSohneBreit-Dreiviertelfett-BF663d89c955618.otf") format("opentype");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "TestSohneBreit-DreiviertelfettKursiv";
+  src: url("../assets/Fonts/TestSohneBreit-DreiviertelfettKursiv-BF663d89c9d74c0.otf") format("opentype");
+  font-weight: bold;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "TestSohneBreit-Extrafett";
+  src: url("../assets/Fonts/TestSohneBreit-Extrafett-BF663d89ca5b44e.otf") format("opentype");
+  font-weight: bolder;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "TestSohneBreit-ExtrafettKursiv";
+  src: url("../assets/Fonts/TestSohneBreit-ExtrafettKursiv-BF663d89caab90d.otf") format("opentype");
+  font-weight: bolder;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "TestSohneBreit-Extraleicht";
+  src: url("../assets/Fonts/TestSohneBreit-Extraleicht-BF663d89cd9eb84.otf") format("opentype");
+  font-weight: lighter;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "TestSohneBreit-Fett";
+  src: url("../assets/Fonts/TestSohneBreit-Fett-BF663d89ca84caa.otf") format("opentype");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "TestSohneBreit-FettKursiv";
+  src: url("../assets/Fonts/TestSohneBreit-FettKursiv-BF663d89ca53f0b.otf") format("opentype");
+  font-weight: bold;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "TestSohneBreit-Halbfett";
+  src: url("../assets/Fonts/TestSohneBreit-Halbfett-BF663d89cacf645.otf") format("opentype");
+  font-weight: semi-bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "TestSohneBreit-LeichtKursiv";
+  src: url("../assets/Fonts/TestSohneBreit-LeichtKursiv-BF663d89ca7f368.otf") format("opentype");
+  font-weight: lighter;
+  font-style: italic;
+}
+
+/* TestSohne */
+@font-face {
+  font-family: "TestSohne-Buch";
+  src: url("../assets/Fonts/TestSohne-Buch-BF663d89cd32e6a.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "TestSohne-ExtrafettKursiv";
+  src: url("../assets/Fonts/TestSohne-ExtrafettKursiv-BF663d89ccb8000.otf") format("opentype");
+  font-weight: bolder;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "TestSohne-Halbfett";
+  src: url("../assets/Fonts/TestSohne-Halbfett-BF663d89cd2d67b.otf") format("opentype");
+  font-weight: semi-bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "TestSohne-HalbfettKursiv";
+  src: url("../assets/Fonts/TestSohne-HalbfettKursiv-BF663d89cd41624.otf") format("opentype");
+  font-weight: semi-bold;
+  font-style: italic;
+}
+
+/* TestSohneMono */
+@font-face {
+  font-family: "TestSohneMono-Buch";
+  src: url("../assets/Fonts/TestSohneMono-Buch-BF663d89cbcec64.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "TestSohneMono-Halbfett";
+  src: url("../assets/Fonts/TestSohneMono-Halbfett-BF663d89cc69f9d.otf") format("opentype");
+  font-weight: semi-bold;
+  font-style: normal;
+}
+
+/* TestSohneSchmal */
+@font-face {
+  font-family: "TestSohneSchmal-Buch";
+  src: url("../assets/Fonts/TestSohneSchmal-Buch-BF663d89cacd623.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "TestSohneSchmal-Dreiviertelfett";
+  src: url("../assets/Fonts/TestSohneSchmal-Dreiviertelfett-BF663d89cad1b90.otf") format("opentype");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "TestSohneSchmal-DreiviertelfettKursiv";
+  src: url("../assets/Fonts/TestSohneSchmal-DreiviertelfettKursiv-BF663d89cabe2e7.otf") format("opentype");
+  font-weight: bold;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "TestSohneSchmal-Extrafett";
+  src: url("../assets/Fonts/TestSohneSchmal-Extrafett-BF663d89caa8d99.otf") format("opentype");
+  font-weight: bolder;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "TestSohneSchmal-ExtrafettKursiv";
+  src: url("../assets/Fonts/TestSohneSchmal-ExtrafettKursiv-BF663d89caabd3d.otf") format("opentype");
+  font-weight: bolder;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "TestSohneSchmal-Extraleicht";
+  src: url("../assets/Fonts/TestSohneSchmal-Extraleicht-BF663d89caa4aa3.otf") format("opentype");
+  font-weight: lighter;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "TestSohneSchmal-Fett";
+  src: url("../assets/Fonts/TestSohneSchmal-Fett-BF663d89cadad5a.otf") format("opentype");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "TestSohneSchmal-FettKursiv";
+  src: url("../assets/Fonts/TestSohneSchmal-FettKursiv-BF663d89cad3975.otf") format("opentype");
+  font-weight: bold;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "TestSohneSchmal-Kraftig";
+  src: url("../assets/Fonts/TestSohneSchmal-Kraftig-BF663d89cad3ca8.otf") format("opentype");
+  font-weight: bolder;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "TestSohneSchmal-Leicht";
+  src: url("../assets/Fonts/TestSohneSchmal-Leicht-BF663d89cbb7c25.otf") format("opentype");
+  font-weight: lighter;
+  font-style: normal;
 }
