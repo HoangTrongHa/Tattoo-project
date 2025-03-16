@@ -83,7 +83,7 @@ export default function BookingStep1() {
       {/* Section 1 */}
       <div className="bg-[#455927] py-[168px]">
         <div className="w-full text-center mx-auto">
-          <h2 className="uppercase">
+          <h2 className="uppercase max-w-[1438px] mx-auto">
             Ready to ink your story? <br /> Book your tattoo session now!
           </h2>
           <p className="max-w-[847px] mx-auto mt-[40px]">
