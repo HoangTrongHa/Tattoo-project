@@ -1,0 +1,162 @@
+@font-face {
+  font-family: "Aeonik TRIAL";
+  src: url("../assets/Fonts/Aeonik-Regular.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Aeonik TRIAL BOLD";
+  src: url("../assets/Fonts/Aeonik-Bold.otf") format("opentype");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Aeonik TRIAL Lighter";
+  src: url("../assets/Fonts/Aeonik-Light.otf") format("opentype");
+  font-weight: lighter;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Aeonik TRIAL";
+  src: url("../assets/Fonts/Aeonik-RegularItalic.otf") format("opentype");
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Aeonik TRIAL";
+  src: url("../assets/Fonts/Aeonik-BoldItalic.otf") format("opentype");
+  font-weight: bold;
+  font-style: italic;
+}
+
+/* 1. TestSohne-Buch: Thường (normal) */
+@font-face {
+  font-family: "TestSohne-Buch";
+  src: url("../assets/Fonts/TestSohne-Buch-BF663d89cd32e6a.otf") format("opentype");
+  font-weight: 400; /* normal */
+  font-style: normal;
+}
+
+/* 2. TestSohne-BuchKursiv: Thường + Nghiêng (italic) */
+@font-face {
+  font-family: "TestSohne-BuchKursiv";
+  src: url("../assets/Fonts/TestSohne-BuchKursiv-BF663d89cd3e887.otf") format("opentype");
+  font-weight: 400; /* normal */
+  font-style: italic;
+}
+
+/* 3. TestSohne-Dreiviertelfett: Ba phần tư đậm, có thể ~ Semibold/Bold tùy quy ước */
+@font-face {
+  font-family: "TestSohne-Dreiviertelfett";
+  src: url("../assets/Fonts/TestSohne-Dreiviertelfett-BF663d89ccc5f66.otf") format("opentype");
+  font-weight: 600; /* hoặc 700, tùy ý đồ thiết kế */
+  font-style: normal;
+}
+
+/* 4. TestSohne-DreiviertelfettKursiv: Ba phần tư đậm + Nghiêng */
+@font-face {
+  font-family: "TestSohne-DreiviertelfettKursiv";
+  src: url("../assets/Fonts/TestSohne-DreiviertelfettKursiv-BF663d89cd2f687.otf") format("opentype");
+  font-weight: 600; /* hoặc 700 */
+  font-style: italic;
+}
+
+/* 5. TestSohne-Extrafett: Rất đậm (Extra Bold) */
+@font-face {
+  font-family: "TestSohne-Extrafett";
+  src: url("../assets/Fonts/TestSohne-Extrafett-BF663d89cc9f2c0.otf") format("opentype");
+  font-weight: 800; /* hoặc 900 */
+  font-style: normal;
+}
+
+/* 6. TestSohne-ExtrafettKursiv: Rất đậm + Nghiêng (Extra Bold Italic) */
+@font-face {
+  font-family: "TestSohne-ExtrafettKursiv";
+  src: url("../assets/Fonts/TestSohne-ExtrafettKursiv-BF663d89ccb8000.otf") format("opentype");
+  font-weight: 800; /* hoặc 900 */
+  font-style: italic;
+}
+
+/* 7. TestSohne-Extraleicht: Rất nhẹ (Extra Light) */
+@font-face {
+  font-family: "TestSohne-Extraleicht";
+  src: url("../assets/Fonts/TestSohne-Extraleicht-BF663d89cd3f5c5.otf") format("opentype");
+  font-weight: 200; /* hoặc 100, tùy ý */
+  font-style: normal;
+}
+
+/* 8. TestSohne-ExtraleichtKursiv: Rất nhẹ + Nghiêng */
+@font-face {
+  font-family: "TestSohne-ExtraleichtKursiv";
+  src: url("../assets/Fonts/TestSohne-ExtraleichtKursiv-BF663d89cd3f0d1.otf") format("opentype");
+  font-weight: 200; /* hoặc 100 */
+  font-style: italic;
+}
+
+/* 9. TestSohne-Fett: Đậm (Bold) */
+@font-face {
+  font-family: "TestSohne-Fett";
+  src: url("../assets/Fonts/TestSohne-Fett-BF663d89cca89ff.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+}
+
+/* 10. TestSohne-FettKursiv: Đậm + Nghiêng (Bold Italic) */
+@font-face {
+  font-family: "TestSohne-FettKursiv";
+  src: url("../assets/Fonts/TestSohne-FettKursiv-BF663d89cc64878.otf") format("opentype");
+  font-weight: 700;
+  font-style: italic;
+}
+
+/* 11. TestSohne-Halbfett: Nửa đậm (Semi-Bold / Medium) */
+@font-face {
+  font-family: "TestSohne-Halbfett";
+  src: url("../assets/Fonts/TestSohne-Halbfett-BF663d89cd2d67b.otf") format("opentype");
+  font-weight: 500; /* hoặc 600 tùy ý */
+  font-style: normal;
+}
+
+/* 12. TestSohne-HalbfettKursiv: Nửa đậm + Nghiêng */
+@font-face {
+  font-family: "TestSohne-HalbfettKursiv";
+  src: url("../assets/Fonts/TestSohne-HalbfettKursiv-BF663d89cd41624.otf") format("opentype");
+  font-weight: 500; /* hoặc 600 */
+  font-style: italic;
+}
+
+/* 13. TestSohne-Kraftig: Rất mạnh (Heavy / Black) */
+@font-face {
+  font-family: "TestSohne-Kraftig";
+  src: url("../assets/Fonts/TestSohne-Kraftig-BF663d89cd37e26.otf") format("opentype");
+  font-weight: 900; /* hoặc 800 */
+  font-style: normal;
+}
+
+/* 14. TestSohne-KraftigKursiv: Rất mạnh + Nghiêng */
+@font-face {
+  font-family: "TestSohne-KraftigKursiv";
+  src: url("../assets/Fonts/TestSohne-KraftigKursiv-BF663d89cd2bd4b.otf") format("opentype");
+  font-weight: 900; /* hoặc 800 */
+  font-style: italic;
+}
+
+/* 15. TestSohne-Leicht: Nhẹ (Light) */
+@font-face {
+  font-family: "TestSohne-Leicht";
+  src: url("../assets/Fonts/TestSohne-Leicht-BF663d89cd4952e.otf") format("opentype");
+  font-weight: 300; /* hoặc 200 */
+  font-style: normal;
+}
+
+/* 16. TestSohne-LeichtKursiv: Nhẹ + Nghiêng */
+@font-face {
+  font-family: "TestSohne-LeichtKursiv";
+  src: url("../assets/Fonts/TestSohne-LeichtKursiv-BF663d89cd9a361.otf") format("opentype");
+  font-weight: 300; /* hoặc 200 */
+  font-style: italic;
+}

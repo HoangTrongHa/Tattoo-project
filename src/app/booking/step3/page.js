@@ -83,8 +83,8 @@ export default function Step3() {
     <div className="bg-[#E5DFDB] pt-[130px]">
       <div className="container mx-auto">
         <h2 className="!text-[#455927]">NICE! LAST STEP</h2>
-        <p className="!text-[#606060] my-[40px]">
-          We really want to get to know you and your idea. Let us know how we can best reach you.
+        <p className="!text-[#606060] my-[40px] text-center">
+          We really want to get to know you and your idea. To do this, just briefly describe your tattoo idea and let us know how we can best reach you.
         </p>
 
         <div className="flex justify-between w-full">
@@ -168,8 +168,8 @@ export default function Step3() {
           </div>
         </div>
 
-        <div>Optional: Upload your pictures here</div>
-        <div className="my-[36px]">
+        <div className='text-[#121212] text-[14px]'>Optional: Upload your pictures here</div>
+        <div className="mb-[36px]">
           <FileUpload onChange onFileUpload={handleFileUpload} />
         </div>
 

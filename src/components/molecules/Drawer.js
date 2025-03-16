@@ -45,7 +45,7 @@ export default function CustomDrawer({ children }) {
       <MenuButton onClick={toggleDrawer(true)}>
         <MenuIcon />
       </MenuButton>
-      <MuiDrawer anchor="right" open={drawerOpen} onClose={toggleDrawer(false)}>
+      <MuiDrawer anchor="top" open={drawerOpen} onClose={toggleDrawer(false)}>
         <DrawerContent
           role="presentation"
           onClick={toggleDrawer(false)}

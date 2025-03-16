@@ -8,6 +8,7 @@ import CustomDrawer from '@/components/molecules/Drawer'
 import List from '@mui/material/List'
 import ListItem from '@mui/material/ListItem'
 import ListItemText from '@mui/material/ListItemText'
+import Link from 'next/link' // Import Link from next/link
 
 const Header = styled('header')({
   position: 'absolute',
@@ -30,20 +31,24 @@ export default function GlobalHeader({ logos }) {
   const { logoSrc } = logos
 
   const menuItems = [
-    'Menu Item 1',
-    'Menu Item 2',
-    'Menu Item 3',
+    'HOME',
+    'ABOUT US',
+    'ARTIST',
+    'PRICE',
+    'GALLERY',
   ]
 
   return (
     <div>
       <Header>
-        <Logo src={logoSrc} alt="Logo" />
+        <Link href="/" passHref>
+          <Logo src={logoSrc} alt="Logo" />
+        </Link>
         <CustomDrawer>
           <List>
             {menuItems.map((item, index) => (
               <ListItem key={index}>
-                <ListItemText primary={item} />
+                <ListItemText className='text-center custom-header-menu cursor-pointer' primary={item} />
               </ListItem>
             ))}
           </List>
