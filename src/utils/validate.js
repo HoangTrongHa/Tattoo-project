@@ -17,7 +17,7 @@ export function validateForm(formData) {
   }
   if (!formData.emailRepeat) {
     newErrors.emailRepeat = 'Please repeat your email address.';
-  } else if (data.email !== data.emailRepeat) {
+  } else if (formData.email !== formData.emailRepeat) {
     newErrors.emailRepeat = 'Email addresses do not match.';
   }
   

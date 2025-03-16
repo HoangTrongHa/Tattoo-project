@@ -2,6 +2,7 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import { Provider } from 'react-redux';
 import { store } from '@/store/store';
+import { SnackbarProvider } from '@/context/SnackbarContext';
 
 import "./globals.css";
 
@@ -38,9 +39,11 @@ export default function RootLayout({ children }) {
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <Provider store={store}>
-          <GlobalHeader logos={{logoSrc: logo.src}} />
-          {children}
-          < GlobalFooter />
+          <SnackbarProvider>
+            <GlobalHeader logos={{logoSrc: logo.src}} />
+            {children}
+            < GlobalFooter />
+          </SnackbarProvider>
         </Provider>
       </body>
     </html>

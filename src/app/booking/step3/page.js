@@ -1,23 +1,40 @@
 'use client'
-import React, { useState } from 'react';
-import Fields from '@/components/atoms/Fields';
-import { validateForm } from '@/utils/validate';
-import TextArea from '@/components/atoms/TextArea';
-import InfoSharpIcon from '@mui/icons-material/InfoSharp';
-import FileUpload from '@/components/molecules/FileUpload';
-import Button from '@/components/atoms/Button'
+import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
+import Fields from '@/components/atoms/Fields';
+import TextArea from '@/components/atoms/TextArea';
+import { validateForm } from '@/utils/validate';
+import { registerUser, uploadFiles } from '@/services/user';
+import FileUpload from '@/components/molecules/FileUpload';
+import InfoSharpIcon from '@mui/icons-material/InfoSharp';
+import Button from '@/components/atoms/Button';
+import { useSelector } from 'react-redux';
+import { useSnackbar } from '@/context/SnackbarContext';
 
 export default function Step3() {
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
     email: '',
-    phoneNumber: '',
     emailRepeat: '',
+    phoneNumber: '',
+    idea: '',
+    images: [],
+    tattooType: '',
   });
-  const router = useRouter();
+
   const [errors, setErrors] = useState({});
+  const router = useRouter();
+  const showSnackbar = useSnackbar();
+  const selectedPart = useSelector((state) => state.selectedPart.value);
+
+  useEffect(() => {
+    if (selectedPart) {
+      setFormData((prev) => ({ ...prev, tattooType: selectedPart }));
+    } else {
+      router.push('/booking/step2');
+    }
+  }, [selectedPart, router]);
 
   const handleFieldChange = (e) => {
     const { name, value } = e.target;
@@ -25,6 +42,7 @@ export default function Step3() {
   };
 
   const handleFileUpload = (files) => {
+    setFormData(prev => ({ ...prev, images: files }));
     console.log('Uploaded files:', files);
   };
 
@@ -32,16 +50,37 @@ export default function Step3() {
     router.push('/booking/step2');
   };
 
-  const submit = () => {
+  const submit = async () => {
     const newErrors = validateForm(formData);
     if (Object.keys(newErrors).length > 0) {
       setErrors(newErrors);
       return;
     }
-    console.log('Form data:', formData);
-  }
+    delete formData.emailRepeat;
+    if (selectedPart === undefined || selectedPart === null) {
+      router.push('/booking/step2');
+    }
+    try {
+      const uploadResponse = await uploadFiles(formData.images);
+      if (uploadResponse.length > 0) {
+        const imageIds = uploadResponse.map(file => file.id);
+        setFormData(prev => ({ ...prev, images: imageIds }));
+        const formDataToSend = {
+          ...formData,
+          images: imageIds
+        };
+        await registerUser(formDataToSend);
+        showSnackbar('User registered successfully!', 'success');
+        // Redirect to next step or show a success message here
+      }
+    } catch (error) {
+      showSnackbar(error, 'error');
+      // Handle the error appropriately
+    }
+  };
+
   return (
-    <div className="bg-[#E5DFDB] pt-[130px] ">
+    <div className="bg-[#E5DFDB] pt-[130px]">
       <div className="container mx-auto">
         <h2 className="!text-[#455927]">NICE! LAST STEP</h2>
         <p className="!text-[#606060] my-[40px]">
@@ -109,6 +148,7 @@ export default function Step3() {
             />
           </div>
         </div>
+
         <div className="flex justify-between w-full my-[36px]">
           <div className="w-[100%]">
             <TextArea
@@ -120,23 +160,24 @@ export default function Step3() {
               fullWidth
             />
             <div className="flex w-full items-center">
-            <InfoSharpIcon className='!w-[16px] text-[#A3A3A3] mr-1' />
-            <div className='!text-[12px] text-[#A3A3A3]'>You will hear from us within the next 12 hours, we promise.</div>
+              <InfoSharpIcon className="!w-[16px] text-[#A3A3A3] mr-1" />
+              <div className="!text-[12px] text-[#A3A3A3]">
+                You will hear from us within the next 12 hours, we promise.
+              </div>
             </div>
           </div>
         </div>
+
         <div>Optional: Upload your pictures here</div>
         <div className="my-[36px]">
-          <FileUpload onFileUpload={handleFileUpload} />
+          <FileUpload onChange onFileUpload={handleFileUpload} />
         </div>
+
         <div className="py-[64px] flex justify-end">
           <Button color="primary" className="!mr-5 w-[100px]" onClick={handleBackClick}>
             Back
           </Button>
-          <Button 
-            color="success w-[100px]"
-            onClick={submit}
-          >
+          <Button color="success w-[100px]" onClick={submit}>
             Submit
           </Button>
         </div>
