@@ -44,6 +44,17 @@ h2 {
   text-transform: uppercase;
 }
 
+h3 {
+  color: #FFF;
+  text-align: center;
+  font-family: 'TestSohne-Fett', sans-serif;
+  font-size: 76px;
+  font-style: normal;
+  font-weight: 900;
+  line-height: 88.5%; /* 84.96px */
+  text-transform: uppercase;
+}
+
 p, div {
   font-family: "Aeonik TRIAL Lighter",sans-serif;
   font-style: normal;
@@ -77,4 +88,24 @@ Monospace: Font có chiều rộng ký tự đều. */
   font-family: "TestSohne-Extrafett", sans-serif;
   font-size: 86px;
   font-weight: 900;
+}
+
+.banner-home {
+  height: 1289px;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
+}
+
+.scroll-down-icon {
+  animation: bounce 2s infinite;
 }

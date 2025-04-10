@@ -40,7 +40,7 @@ export default function RootLayout({ children }) {
       >
         <Provider store={store}>
           <SnackbarProvider>
-            <GlobalHeader logos={{logoSrc: logo.src}} />
+            <GlobalHeader className="absolute z-1" logos={{logoSrc: logo.src}} />
             {children}
             < GlobalFooter />
           </SnackbarProvider>
