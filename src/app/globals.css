@@ -1,5 +1,6 @@
 @import "tailwindcss";
 @import "./fonts.css";
+@import "./button.css";
 
 @theme {
   --font-sans: var(--font-geist-sans);
@@ -35,7 +36,6 @@ body {
 
 h2 {
   color: #FFF;
-  text-align: center;
   font-family: 'TestSohne-Fett', sans-serif;
   font-size: 96px;
   font-style: normal;
@@ -46,7 +46,6 @@ h2 {
 
 h3 {
   color: #FFF;
-  text-align: center;
   font-family: 'TestSohne-Fett', sans-serif;
   font-size: 76px;
   font-style: normal;

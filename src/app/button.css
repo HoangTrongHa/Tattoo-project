@@ -1,0 +1,24 @@
+.buttonAnimate {
+  z-index: 50;
+  transform-origin: 50%;
+  flex: none;
+  justify-content: center;
+  align-self: auto;
+  align-items: center;
+  width: auto;
+  transition: transform .5s cubic-bezier(.19,1,.22,1),background-color .5s cubic-bezier(.19,1,.22,1) !important;
+  display: inline-flex;
+  position: relative !important;
+}
+
+.buttonAnimate:hover {
+  transform: scale(1.1)
+}
+
+.char {
+  display: inline-block;
+  rotate: none;
+  scale: none;
+  transform: translate(0px, 0px);
+}
+

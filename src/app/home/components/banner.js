@@ -1,22 +1,10 @@
 'use client';
-import React, { useState, useCallback } from 'react';
+import React from 'react';
 import Background from '@/assets/home/home-background.png';
 import Button from '@/components/atoms/Button';
-import Image from '@/components/atoms/Image';
+import ImageHandler from '@/components/organisms/ImageHandler';
 
 const Banner = ({ images }) => {
-  const [pathImage, setPathImage] = useState('');
-  const [showThumbnail, setShowThumbnail] = useState(false);
-
-  const handleMouseEnter = useCallback((src) => {
-    setPathImage(src);
-    setShowThumbnail(true);
-  }, []);
-
-  const handleMouseLeave = useCallback(() => {
-    setShowThumbnail(false);
-  }, []);
-
   return (
     <div
       className="relative flex items-center justify-center w-full banner-home bg-[#455927] text-center text-white"
@@ -52,28 +40,7 @@ const Banner = ({ images }) => {
           </div>
         </div>
       </div>
-      {images.map((image, index) => (
-        <div
-          key={index}
-          className={`absolute z-10 hover-image image-${index + 1} ${image.position}`}
-        >
-          <Image
-            className="cursor-pointer"
-            onMouseEnter={() => handleMouseEnter(image.src)}
-            onMouseLeave={handleMouseLeave}
-            src={image.src}
-            alt={`image-${index + 1}`}
-          />
-        </div>
-      ))}
-      {showThumbnail && (
-        <div className="z-11 fixed top-0 left-0 w-full h-full p-[var(--margin)] pointer-events-none">
-          <div className="w-full h-full absolute bg-[#455927] opacity-80"></div>
-          <div className="absolute top-[50%] left-[50%] transform -translate-x-1/2 -translate-y-1/2">
-            <Image src={pathImage} alt="pathImage" />
-          </div>
-        </div>
-      )}
+      <ImageHandler images={images} />
     </div>
   );
 };
