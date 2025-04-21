@@ -18,7 +18,7 @@ const Banner = ({ images }) => {
       <div className="px-6 py-12">
         <h2 className="uppercase">WE MAKE ART</h2>
         <h2 className="text-4xl mt-4 !text-[#BEBEBE]">NOT JUST TATTOOS</h2>
-        <Button sx={{ mt: '80px', px: '25px', py: '16px', fontSize: '30px' }}>
+        <Button className="!mx-auto" sx={{ mt: '80px', px: '25px', py: '16px', fontSize: '30px' }}>
           <div className="font-aeonik-bold">Book a Consultation</div>
         </Button>
         <div className="mt-6 text-xl text-white">

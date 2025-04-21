@@ -1,66 +1,152 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
 import { styled } from '@mui/material/styles';
-import Button from '@mui/material/Button';
+import MuiButton from '@mui/material/Button';
+import gsap from 'gsap';
 
-const StyledButton = styled(Button)(() => ({
-  '&.MuiButton-contained': {
-    backgroundColor: 'var(--button-default-background)',
-    color: 'var(--button-default-color)',
+const StyledButton = styled(MuiButton)(({ theme }) => ({
+  backgroundColor: '#455927',
+  color: '#fff',
+  borderRadius: '4px',
+  textTransform: 'none',
+  fontFamily: '"Aeonik TRIAL", sans-serif',
+  transition: 'all 0.3s ease-in-out',
+  position: 'relative',
+  overflow: 'hidden',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  gap: '8px',
+  padding: '16px 32px',
+  fontSize: '18px',
+  fontWeight: 500,
+  letterSpacing: '0.2px',
+  '&::before': {
+    content: '""',
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    width: '100%',
+    height: '100%',
+    background: 'rgba(255, 255, 255, 0.1)',
+    transform: 'translateX(-100%)',
+    transition: 'transform 0.3s ease-in-out',
   },
-  '&.MuiButton-colorSuccess': {
-    backgroundColor: 'var(--button-default-background-success)',
-    color: 'var(--foreground)',
+  '&:hover': {
+    backgroundColor: '#3a4b21',
+    transform: 'translateY(-2px)',
+    boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)',
+    '&::before': {
+      transform: 'translateX(0)',
+    }
   },
+  '&:active': {
+    transform: 'translateY(0)',
+    boxShadow: '0 2px 8px rgba(0, 0, 0, 0.15)',
+  },
+  [theme.breakpoints.down('sm')]: {
+    padding: '12px 24px',
+    fontSize: '16px',
+  }
 }));
 
-export default function CustomButton({
-  children,
-  color = 'primary',
-  onClick,
-  onHover,
-  variant = 'contained',
-  animate = false,
-  ...props
-}) {
+const PlayIcon = styled('span')({
+  display: 'inline-block',
+  width: '20px',
+  height: '20px',
+  transition: 'transform 0.6s cubic-bezier(0.4, 0, 0.2, 1)',
+  '&::before': {
+    content: '""',
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    width: '0',
+    height: '0',
+    borderTop: '6px solid transparent',
+    borderBottom: '6px solid transparent',
+    borderLeft: '10px solid #fff',
+    transform: 'translate(-50%, -50%)',
+  }
+});
+
+const ButtonText = styled('div')({
+  position: 'relative',
+  display: 'block',
+  overflow: 'hidden',
+  lineHeight: 1.2,
+  '& .text-wrapper': {
+    display: 'block',
+    position: 'relative',
+    transition: 'transform 0.3s ease-in-out',
+  },
+  '& .text-1': {
+    transform: 'translateY(0)',
+    visibility: 'visible',
+  },
+  '& .text-2': {
+    position: 'absolute',
+    top: '100%',
+    left: 0,
+    width: '100%',
+  }
+});
+
+export default function Button({ children, sx, ...props }) {
+  const buttonRef = useRef(null);
+  const text1Ref = useRef(null);
+  const text2Ref = useRef(null);
+
   const handleMouseEnter = () => {
-    if (onHover) {
-      onHover(true); // Trigger hover event
+    if (buttonRef.current) {
+      gsap.to(text1Ref.current, {
+        yPercent: -100,
+        duration: 0.1,
+        ease: "power2.out"
+      });
+      gsap.to(text2Ref.current, {
+        yPercent: -100,
+        duration: 0.1,
+        ease: "power2.out"
+      });
     }
   };
 
   const handleMouseLeave = () => {
-    if (onHover) {
-      onHover(false); // Trigger hover leave event
+    if (buttonRef.current) {
+      gsap.to(text1Ref.current, {
+        yPercent: 0,
+        duration: 0.1,
+        ease: "power2.out"
+      });
+      gsap.to(text2Ref.current, {
+        yPercent: 0,
+        duration: 0.1,
+        ease: "power2.out"
+      });
     }
   };
 
   return (
     <StyledButton
-      className={`${animate ? 'buttonAnimate' : ''}`}
-      variant={variant}
-      color={color}
-      onClick={onClick}
+      ref={buttonRef}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
+      sx={sx}
       {...props}
     >
-      <span>{children}</span>
+      <ButtonText>
+        <span className="text-wrapper text-1" ref={text1Ref}>{children}</span>
+        <span className="text-wrapper text-2" ref={text2Ref}>{children}</span>
+      </ButtonText>
     </StyledButton>
   );
 }
 
-CustomButton.propTypes = {
+Button.propTypes = {
   children: PropTypes.node.isRequired,
-  onClick: PropTypes.func,
-  onHover: PropTypes.func, // Added hover event prop
-  variant: PropTypes.oneOf(['contained', 'outlined']),
-  animate: PropTypes.bool,
+  sx: PropTypes.object,
 };
 
-CustomButton.defaultProps = {
-  onClick: () => {},
-  onHover: null, // Default hover event is null
-  variant: 'contained',
-  animate: false,
+Button.defaultProps = {
+  sx: {},
 };

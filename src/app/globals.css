@@ -6,6 +6,7 @@
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -13,7 +14,6 @@
   --button-default-color : #171717;
   --button-default-background: #ffffff;
   --button-default-background-success : #455927;
-
 }
 
 @media (prefers-color-scheme: dark) {
@@ -27,30 +27,72 @@ body {
   color: var(--foreground);
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 20px;
+  font-size: 16px;
+  @media (min-width: 640px) {
+    font-size: 18px;
+  }
+  @media (min-width: 1024px) {
+    font-size: 20px;
+  }
 }
 
-.MuiDrawer-modal .MuiDrawer-paperAnchorRight{
-  width: 30%;
+.MuiDrawer-modal .MuiDrawer-paperAnchorRight {
+  width: 100%;
+  @media (min-width: 640px) {
+    width: 80%;
+  }
+  @media (min-width: 768px) {
+    width: 60%;
+  }
+  @media (min-width: 1024px) {
+    width: 40%;
+  }
+  @media (min-width: 1280px) {
+    width: 30%;
+  }
 }
 
 h2 {
   color: #FFF;
   font-family: 'TestSohne-Fett', sans-serif;
-  font-size: 96px;
+  font-size: 48px;
+  @media (min-width: 640px) {
+    font-size: 64px;
+  }
+  @media (min-width: 768px) {
+    font-size: 76px;
+  }
+  @media (min-width: 1024px) {
+    font-size: 86px;
+  }
+  @media (min-width: 1280px) {
+    font-size: 96px;
+  }
   font-style: normal;
   font-weight: 900;
-  line-height: 88.5%; /* 84.96px */
+  line-height: 88.5%;
   text-transform: uppercase;
 }
 
 h3 {
   color: #FFF;
   font-family: 'TestSohne-Fett', sans-serif;
-  font-size: 76px;
+  font-size: 36px;
+  @media (min-width: 640px) {
+    font-size: 48px;
+  }
+  @media (min-width: 768px) {
+    font-size: 56px;
+  }
+  @media (min-width: 1024px) {
+    font-size: 66px;
+  }
+  @media (min-width: 1280px) {
+    font-size: 76px;
+  }
   font-style: normal;
   font-weight: 900;
-  line-height: 88.5%; /* 84.96px */
+  line-height: 88.5%;
   text-transform: uppercase;
 }
 
@@ -58,11 +100,17 @@ p, div {
   font-family: "Aeonik TRIAL Lighter",sans-serif;
   font-style: normal;
   font-weight: 400;
-  line-height: 28px; /* 140% */
+  line-height: 1.4;
 }
 
 p {
-  font-size: 20px;
+  font-size: 16px;
+  @media (min-width: 640px) {
+    font-size: 18px;
+  }
+  @media (min-width: 1024px) {
+    font-size: 20px;
+  }
 }
 
 .font-aeonik {
@@ -81,16 +129,36 @@ Extrafett: Extra Bold (Rất đậm).
 Kursiv/Italic: Nghiêng.
 Monospace: Font có chiều rộng ký tự đều. */
 
-
-
 .custom-header-menu span {
   font-family: "TestSohne-Extrafett", sans-serif;
-  font-size: 86px;
+  font-size: 36px;
+  @media (min-width: 640px) {
+    font-size: 48px;
+  }
+  @media (min-width: 768px) {
+    font-size: 64px;
+  }
+  @media (min-width: 1024px) {
+    font-size: 76px;
+  }
+  @media (min-width: 1280px) {
+    font-size: 86px;
+  }
   font-weight: 900;
 }
 
 .banner-home {
-  height: 1289px;
+  height: 100vh;
+  min-height: 600px;
+  @media (min-width: 768px) {
+    height: 800px;
+  }
+  @media (min-width: 1024px) {
+    height: 1000px;
+  }
+  @media (min-width: 1280px) {
+    height: 1289px;
+  }
 }
 
 @keyframes bounce {
