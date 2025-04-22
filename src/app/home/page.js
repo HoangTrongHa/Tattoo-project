@@ -3,6 +3,7 @@ import React from 'react';
 import Banner from './components/banner';
 import About from './components/about';
 import ViewWork from './components/viewWork';
+import OurPrice from './components/ourPrice';
 import Image from '@/components/atoms/Image';
 
 import image1 from '@/assets/home/image-1.png';
@@ -43,6 +44,7 @@ export default function HeroBanner() {
         alt='banner'
       />
       <ViewWork />
+      <OurPrice />
     </div>
   );
 }
