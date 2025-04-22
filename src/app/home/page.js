@@ -45,6 +45,11 @@ export default function HeroBanner() {
       />
       <ViewWork />
       <OurPrice />
+      <Image
+        className='w-full h-[auto]'
+        src={BannerImage.src}
+        alt='banner'
+      />
     </div>
   );
 }

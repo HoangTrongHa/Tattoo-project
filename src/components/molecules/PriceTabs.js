@@ -7,6 +7,11 @@ const StyledTabs = styled(Tabs)({
   '& .MuiTabs-indicator': {
     display: 'none',
   },
+  '& .MuiTabs-flexContainer': {
+    gap: '32px',
+    flexWrap: 'wrap',
+    justifyContent: 'center',
+  }
 });
 
 const StyledTab = styled(Tab)({
@@ -15,8 +20,14 @@ const StyledTab = styled(Tab)({
   padding: '0 16px',
   minWidth: 'auto',
   fontFamily: 'Aeonik TRIAL BOLD',
+  transition: 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)',
   '&.Mui-selected': {
     color: '#FFFFFF',
+    transform: 'scale(1.05)',
+  },
+  '&:hover': {
+    color: '#FFFFFF',
+    opacity: 0.8,
   },
   '@media (min-width: 640px)': {
     fontSize: '32px',
@@ -32,11 +43,9 @@ export default function PriceTabs({ prices, value, onChange }) {
       value={value}
       onChange={onChange}
       centered
-      sx={{
-        '& .MuiTabs-flexContainer': {
-          gap: '32px',
-          flexWrap: 'wrap',
-          justifyContent: 'center',
+      TabIndicatorProps={{
+        style: {
+          transition: 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)'
         }
       }}
     >
@@ -45,6 +54,8 @@ export default function PriceTabs({ prices, value, onChange }) {
           key={index}
           label={price}
           disableRipple
+          id={`price-tab-${index}`}
+          aria-controls={`price-tabpanel-${index}`}
         />
       ))}
     </StyledTabs>
