@@ -133,8 +133,8 @@ export default function HeroBanner() {
               "image": logo.src,
               "priceRange": "$$",
               "openingHours": "Mo-Su 10:00-20:00",
-              "telephone": "+84-xxx-xxx-xxxx",
-              "url": "https://your-tattoo-studio.com"
+              "telephone": "+84 838584663",
+              "url": "https://www.paintogain.info/"
             })
           }}
         />

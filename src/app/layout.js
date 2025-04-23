@@ -59,10 +59,10 @@ export const metadata = {
     images: [logo.src]
   },
   alternates: {
-    canonical: "https://your-tattoo-studio.com",
+    canonical: "https://www.paintogain.info",
     languages: {
-      'vi-VN': 'https://your-tattoo-studio.com/vi',
-      'en-US': 'https://your-tattoo-studio.com/en'
+      'vi-VN': 'https://www.paintogain.info/vi',
+      'en-US': 'https://www.paintogain.info/en'
     }
   }
 };
