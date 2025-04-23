@@ -179,3 +179,7 @@ Monospace: Font có chiều rộng ký tự đều. */
 .scroll-down-icon {
   animation: bounce 2s infinite;
 }
+/* 
+.active-color {
+  color: #455927 !important ;
+} */

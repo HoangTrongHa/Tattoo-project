@@ -40,7 +40,7 @@ const Banner = ({ images }) => {
           </div>
         </div>
       </div>
-      <ImageHandler images={images} />
+      <ImageHandler className='' images={images} />
     </div>
   );
 };

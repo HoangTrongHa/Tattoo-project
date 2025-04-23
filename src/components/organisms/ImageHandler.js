@@ -16,22 +16,38 @@ const ImageHandler = ({ images }) => {
     setShowThumbnail(false);
   }, []);
 
+  const getResponsiveClasses = (position) => {
+    if (typeof position === 'string') return position;
+    
+    if (typeof position === 'object') {
+      const mdClasses = position.md ? ` md:${position.md}` : '';
+      const lgClasses = position.lg ? ` lg:${position.lg}` : '';
+      return `${position.base}${mdClasses}${lgClasses}`.trim();
+    }
+
+    return '';
+  };
+
   return (
     <>
-      {images.map((image, index) => (
-        <div
-          key={index}
-          className={`absolute z-10 hover-image image-${index + 1} ${image.position}`}
-        >
-          <Image
-            className="cursor-pointer"
-            onMouseEnter={() => handleMouseEnter(image.src)}
-            onMouseLeave={handleMouseLeave}
-            src={image.src}
-            alt={`image-${index + 1}`}
-          />
-        </div>
-      ))}
+      {images.map((image, index) => {
+        const positionClasses = getResponsiveClasses(image.position);
+        
+        return (
+          <div
+            key={index}
+            className={`hidden md:block absolute z-10 hover-image image-${index + 1} ${positionClasses}`}
+          >
+            <Image
+              className="w-full h-auto cursor-pointer"
+              onMouseEnter={() => handleMouseEnter(image.src)}
+              onMouseLeave={handleMouseLeave}
+              src={image.src}
+              alt={`image-${index + 1}`}
+            />
+          </div>
+        );
+      })}
       {showThumbnail && (
         <ImageZoom src={pathImage} onClose={handleMouseLeave} />
       )}

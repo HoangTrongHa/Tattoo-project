@@ -23,8 +23,8 @@ export default function ViewWork({ images }) {
                 className="w-full h-full object-cover"
               />
             </div>
-            <div className="w-full lg:w-1/2 lg:pl-[5%]">
-              <div className="flex flex-col gap-3">
+            <div className="w-full lg:w-1/2 lg:pl-[5%] ">
+              <div className="flex flex-col gap-3 mx-5 md:mx-0 my-5 md:my-0">
                 <h4 className="text-[16px] sm:text-[18px] lg:text-[20px] font-testSohne-Fett font-extrabold uppercase text-black/22">
                   Story 1
                 </h4>
@@ -40,7 +40,7 @@ export default function ViewWork({ images }) {
           {/* Row 2 */}
           <div className="flex flex-col lg:flex-row justify-between items-center w-full gap-6 lg:gap-0">
             <div className="w-full lg:w-1/2 lg:pl-[5%] order-2 lg:order-1">
-              <div className="flex flex-col gap-3">
+              <div className="flex flex-col gap-3 mx-5 md:mx-0 my-5 md:my-0">
                 <h4 className="text-[16px] sm:text-[18px] lg:text-[20px] font-testSohne-Fett font-extrabold uppercase text-black/22">
                   Story 1
                 </h4>
@@ -70,7 +70,7 @@ export default function ViewWork({ images }) {
               />
             </div>
             <div className="w-full lg:w-1/2 lg:pl-[5%]">
-              <div className="flex flex-col gap-3">
+              <div className="flex flex-col gap-3 mx-5 md:mx-0 my-5 md:my-0">
                 <h4 className="text-[16px] sm:text-[18px] lg:text-[20px] font-testSohne-Fett font-extrabold uppercase text-black/22">
                   Story 1
                 </h4>
@@ -85,7 +85,7 @@ export default function ViewWork({ images }) {
         </div>
 
         {/* View All Work Button */}
-        <div className="flex justify-center mt-6 sm:mt-8 lg:my-[107px]">
+        <div className="flex justify-center mt-6 sm:mt-8 lg:my-[107px] mb-12 md:mb-0">
           <Button className="bg-white text-black text-[24px] sm:text-[32px] lg:text-[48px] font-bold py-2 sm:py-3 lg:py-4 px-4 sm:px-6 lg:px-[25px]">
             <div className="font-aeonik-bold">View All Work</div>
           </Button>
