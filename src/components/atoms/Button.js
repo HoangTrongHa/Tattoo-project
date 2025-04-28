@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
 import { styled } from '@mui/material/styles';
