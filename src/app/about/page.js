@@ -1,8 +1,8 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import Banner from './components/Banner';
 import GlobalAbout from '@/components/organisms/GlobalAbout';
+import GlobalBanner from '@/components/organisms/GlobalBanner';
 import OurMission from './components/OurMission';
 import about1 from '@/assets/home/about-2.png';
 import about2 from '@/assets/home/about-3.png';
@@ -46,7 +46,10 @@ const AboutPage = () => {
   return (
     <div className="min-h-screen bg-[#455927]">
       {/* Hero Section */}
-      <Banner
+      <GlobalBanner
+        title1="ABOUT"
+        title2="OUR FAMILY"
+        buttonText="More About Us"
       />
       <GlobalAbout images={aboutImage} isButton={false} />
       <OurMission />

@@ -1,10 +1,15 @@
 'use client';
 import React from 'react';
-import Background1 from '@/assets/about/about_bg1.png';
-import Background2 from '@/assets/about/about_bg2.png';
 import Button from '@/components/atoms/Button';
+import Background1 from '@/assets/about/about_bg1.png';
 
-const Banner = () => {
+const Banner = ({ 
+  backgroundImage1 = Background1,
+  title1,
+  title2,
+  buttonText,
+  scrollText = "SCROLL DOWN"
+}) => {
   return (
     <div className="relative flex items-center justify-center w-full h-screen">
       <div
@@ -13,29 +18,32 @@ const Banner = () => {
           backgroundColor: '#1b240e',
           backgroundSize: 'cover',
           backgroundRepeat: 'no-repeat',
-          opacity: 0.7,
         }}
       />
-      <div
-        className="absolute inset-0 z-10"
-        style={{
-          backgroundImage: `url(${Background1.src})`,
-          backgroundSize: 'cover',
-          backgroundRepeat: 'no-repeat',
-          mixBlendMode: 'overlay',
-        }}
-      />
+      {backgroundImage1 && (
+        <div
+          className="absolute inset-0 z-10"
+          style={{
+            backgroundImage: `url(${backgroundImage1.src})`,
+            backgroundSize: 'cover',
+            backgroundRepeat: 'no-repeat',
+            mixBlendMode: 'overlay',
+          }}
+        />
+      )}
       <div className="relative z-20 text-center text-white px-6 py-12">
-        <h2 className="mb-4">ABOUT</h2>
-        <h2 className="mb-6">OUR FAMILY</h2>
-        <Button 
-          className="!mx-auto" 
-          sx={{ mt: '40px', px: '25px', py: '16px', fontSize: '20px' }}
-        >
-          <div className="font-aeonik-bold">More About Us</div>
-        </Button>
+        {title1 && <h2 className="mb-4">{title1}</h2>}
+        {title2 && <h2 className="mb-6">{title2}</h2>}
+        {buttonText && (
+          <Button 
+            className="!mx-auto" 
+            sx={{ mt: '40px', px: '25px', py: '16px', fontSize: '20px' }}
+          >
+            <div className="font-aeonik-bold">{buttonText}</div>
+          </Button>
+        )}
         <div className="mt-6 text-xl text-white">
-          <span className="font-aeonik-bold">SCROLL DOWN</span>
+          <span className="font-aeonik-bold">{scrollText}</span>
           <div className="flex justify-center items-center mt-4">
             <svg
               className="scroll-down-icon"
