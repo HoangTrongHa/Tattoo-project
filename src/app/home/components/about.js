@@ -5,7 +5,7 @@ import Image from 'next/image';
 
 export default function About({ images }) {
   return (
-  <div className="relative z-9 flex flex-col items-center justify-center w-full bg-[#E5DFDB] text-white">
+  <div className="relative z-10 flex flex-col items-center justify-center w-full bg-[#E5DFDB] text-white">
     <h2 className="!text-[#455927] mt-12 md:mt-[315px]">ABOUT THE TEAM</h2>
     <div className="flex flex-col flex-wrap justify-center mt-8">
       <iframe

@@ -5,8 +5,8 @@ import MuiButton from '@mui/material/Button';
 import gsap from 'gsap';
 
 const StyledButton = styled(MuiButton)(({ theme }) => ({
-  backgroundColor: '#455927',
-  color: '#fff',
+  backgroundColor: '#FFFFFF',
+  color: '#000000',
   borderRadius: '4px',
   textTransform: 'none',
   fontFamily: '"Aeonik TRIAL", sans-serif',
@@ -28,12 +28,12 @@ const StyledButton = styled(MuiButton)(({ theme }) => ({
     left: 0,
     width: '100%',
     height: '100%',
-    background: 'rgba(255, 255, 255, 0.1)',
+    background: 'rgba(0, 0, 0, 0.1)',
     transform: 'translateX(-100%)',
     transition: 'transform 0.3s ease-in-out',
   },
   '&:hover': {
-    backgroundColor: '#3a4b21',
+    backgroundColor: '#F5F5F5',
     transform: 'translateY(-2px)',
     boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)',
     '&::before': {

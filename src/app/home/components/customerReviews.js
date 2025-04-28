@@ -100,31 +100,33 @@ export default function CustomerReviews() {
         .carousel-item-padding-40-px {
           transition: all 0.3s ease;
         }
-        .react-multi-carousel-item {
-          transform: scale(0.6);
-          filter: brightness(1);
-          transition: all 0.3s ease;
-        }
-        .react-multi-carousel-item--active {
-          transform: scale(1);
-          opacity: 1;
-        }
-        .react-multi-carousel-track {
-          display: flex;
-          align-items: center;
-          gap: 24px;
-        }
-        .react-multi-carousel-item {
-          display: flex;
-          justify-content: center;
-        }
-        .react-multi-carousel-item > div {
-          width: 100%;
-          max-width: 100%;
-        }
-        .react-multi-carousel-item:not(.react-multi-carousel-item--active) > div {
-          width: 90%;
-          max-width: 90%;
+        @media (min-width: 641px) {
+          .react-multi-carousel-item {
+            transform: scale(0.8);
+            filter: brightness(1);
+            transition: all 0.3s ease;
+          }
+          .react-multi-carousel-item--active {
+            transform: scale(1);
+            opacity: 1;
+          }
+          .react-multi-carousel-track {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+          }
+          .react-multi-carousel-item {
+            display: flex;
+            justify-content: center;
+          }
+          .react-multi-carousel-item > div {
+            width: 100%;
+            max-width: 100%;
+          }
+          .react-multi-carousel-item:not(.react-multi-carousel-item--active) > div {
+            width: 90%;
+            max-width: 90%;
+          }
         }
       `}</style>
     </div>
