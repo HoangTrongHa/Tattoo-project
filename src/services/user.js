@@ -17,10 +17,7 @@ const uploadFile = async (imagePath, mimeType) => {
 };
 export const registerUser = async (formData) => {
   try {
-    const data = {
-      data: formData // Bao bọc formData trong trường 'data'
-    };
-    const response = await axios.post('/api/user-registrations', data);
+    const response = await axios.post('wp-json/tattoo/v1/booking', formData);
     return response.data;
   } catch (error) {
     console.error('Error fetching user data:', error);
@@ -31,14 +28,26 @@ export const registerUser = async (formData) => {
 export const uploadFiles = async (files) => {
   const formData = new FormData();
 
-  // Lặp qua từng tệp và thêm vào FormData
+  // Chỉ cho phép các định dạng ảnh phổ biến
+  const allowedTypes = [
+    'image/jpeg',
+    'image/png',
+    'image/gif',
+    'image/webp',
+    'image/jpg',
+  ];
+
   files.forEach((file) => {
-    formData.append('files', file); // 'files' là trường mà Strapi yêu cầu trong API
+    if (allowedTypes.includes(file.type)) {
+      formData.append('file[]', file);
+    } else {
+      console.warn(`File ${file.name || ''} không phải là ảnh hợp lệ, sẽ bị bỏ qua.`);
+    }
   });
 
   try {
     // Gửi yêu cầu POST lên API upload của Strapi
-    const response = await axios.post('/api/upload', formData, {
+    const response = await axios.post('wp-json/tattoo/v1/upload', formData, {
       headers: {
         'Content-Type': 'multipart/form-data', // Đảm bảo gửi đúng Content-Type
       },

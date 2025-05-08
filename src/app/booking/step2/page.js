@@ -1,7 +1,7 @@
 'use client'
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { setSelectedPart } from '@/store/selectedPartSlice';
+import { setBodyPart } from '@/store/selectedPartSlice';
 import { useRouter } from 'next/navigation';
 import Button from '@/components/atoms/Button'
 
@@ -170,9 +170,9 @@ export default function HumanBody() {
 
   return (
     <div className='bg-[#455927]'>
-      <div className='w-[1260px] mx-auto py-[120px]'>
+      <div className='mx-auto pt-[180px] pb-[120px] text-center'>
         <h2>
-        Where would you like to get tattooed?
+        Where would you like <br /> to get tattooed?
         </h2>
       </div>
       <div className="flex justify-center items-center">
@@ -186,7 +186,7 @@ export default function HumanBody() {
                   onMouseEnter={() => setHoveredPart(part.id)}
                   onMouseLeave={() => setHoveredPart(null)}
                   onClick={() => {
-                    dispatch(setSelectedPart(part.label));
+                    dispatch(setBodyPart(part.label));
                     router.push('/booking/step3');
                   }}
                   className="transition-all duration-200 cursor-pointer"
@@ -203,13 +203,16 @@ export default function HumanBody() {
           </div>
         </div>
       </div>
-      <div className="pb-[64px] flex justify-end">
+      <div className="p-[64px] flex justify-end">
             <Button 
               color="primary" 
-              className="!mr-5 w-[100px]" 
+              className="mr-5 " 
               onClick={() => router.push('/booking/step1')}
             >
-              Back
+              
+              <div className='font-aeonik-bold font-extrabold capitalize'>
+                Back
+              </div>
             </Button>
           </div>
     </div>

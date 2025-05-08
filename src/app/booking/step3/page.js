@@ -20,21 +20,23 @@ export default function Step3() {
     phoneNumber: '',
     idea: '',
     images: [],
-    tattooType: '',
+    style: '',
+    bodyPart: ''
   });
+  const [loading, setLoading] = useState(false);
 
   const [errors, setErrors] = useState({});
   const router = useRouter();
   const showSnackbar = useSnackbar();
-  const selectedPart = useSelector((state) => state.selectedPart.value);
+  const { style, bodyPart } = useSelector((state) => state.selectedPart);
 
   useEffect(() => {
-    if (selectedPart) {
-      setFormData((prev) => ({ ...prev, tattooType: selectedPart }));
-    } else {
-      router.push('/booking/step2');
-    }
-  }, [selectedPart, router]);
+    setFormData((prev) => ({
+      ...prev,
+      ...(style && { style }),
+      ...(bodyPart && { bodyPart }),
+    }));
+  }, [style, bodyPart]);
 
   const handleFieldChange = (e) => {
     const { name, value } = e.target;
@@ -51,19 +53,24 @@ export default function Step3() {
   };
 
   const submit = async () => {
+    setLoading(true);
     const newErrors = validateForm(formData);
     if (Object.keys(newErrors).length > 0) {
       setErrors(newErrors);
       return;
     }
-    delete formData.emailRepeat;
-    if (selectedPart === undefined || selectedPart === null) {
+    setFormData(prev => ({ ...prev, emailRepeat: '' }));    
+    if (bodyPart === undefined || bodyPart === null) {
       router.push('/booking/step2');
     }
     try {
       const uploadResponse = await uploadFiles(formData.images);
+      console.log('uploadResponse', uploadResponse);
       if (uploadResponse.length > 0) {
-        const imageIds = uploadResponse.map(file => file.id);
+        // Lấy id của các file upload thành công
+        const imageIds = uploadResponse
+          .filter(file => file.success)
+          .map(file => file.id);
         setFormData(prev => ({ ...prev, images: imageIds }));
         const formDataToSend = {
           ...formData,
@@ -76,11 +83,14 @@ export default function Step3() {
     } catch (error) {
       showSnackbar(error, 'error');
       // Handle the error appropriately
+    } finally {
+      setLoading(false);
+      router.push('/success');
     }
   };
 
   return (
-    <div className="bg-[#E5DFDB] pt-[130px]">
+    <div className="bg-[#E5DFDB] pt-[180px]">
       <div className="container mx-auto">
         <h2 className="!text-[#455927]">NICE! LAST STEP</h2>
         <p className="!text-[#606060] my-[40px] text-center">
@@ -174,11 +184,20 @@ export default function Step3() {
         </div>
 
         <div className="py-[64px] flex justify-end">
-          <Button color="primary" className="!mr-5 w-[100px]" onClick={handleBackClick}>
-            Back
+          <Button color="primary" className="!mr-5" onClick={handleBackClick}>
+            <div className='font-aeonik-bold font-extrabold capitalize'>
+              Back
+            </div>
           </Button>
-          <Button color="success w-[100px]" onClick={submit}>
-            Submit
+          
+          <Button 
+            color="success" 
+            onClick={submit}
+            disabled={loading}
+          >
+            <div className='font-aeonik-bold font-extrabold capitalize'>
+              Submit
+            </div>
           </Button>
         </div>
       </div>

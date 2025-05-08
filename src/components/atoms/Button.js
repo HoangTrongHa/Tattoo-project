@@ -46,6 +46,14 @@ const StyledButton = styled(MuiButton)(({ theme }) => ({
     transform: 'translateY(0)',
     boxShadow: '0 2px 8px rgba(0, 0, 0, 0.15)',
   },
+  '&:disabled': {
+    backgroundColor: '#e0e0e0',
+    color: '#a0a0a0',
+    cursor: 'not-allowed',
+    boxShadow: 'none',
+    opacity: 0.7,
+    pointerEvents: 'auto',
+  },
   [theme.breakpoints.down('sm')]: {
     padding: '12px 24px',
     fontSize: '16px',

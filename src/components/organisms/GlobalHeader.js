@@ -37,6 +37,7 @@ const Logo = styled('div')(({ theme }) => ({
   width: '138px',
   height: '50px',
   position: 'relative',
+  cursor: 'pointer',
   [theme.breakpoints.down('sm')]: {
     width: '100px',
     height: '40px',
@@ -74,7 +75,7 @@ const MenuText = styled(ListItemText)(({ theme }) => ({
 const menuItems = [
   { label: 'HOME', href: '/' },
   { label: 'ABOUT US', href: '/about' },
-  { label: 'ARTIST', href: '/artist' },
+  { label: 'BOOKING', href: '/booking/step1'},
   { label: 'PRICE', href: '/price' },
   { label: 'GALLERY', href: '/gallery' },
 ]

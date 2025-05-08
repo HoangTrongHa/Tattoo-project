@@ -28,6 +28,7 @@ const StyledCard = styled(Card, {
   margin: '0 16px',
   transition: 'all 0.3s ease',
   cursor: 'pointer',
+  margin: '0 auto',
   [theme.breakpoints.down('sm')]: {
     maxWidth: '140px',
     margin: '0 8px',

@@ -13,16 +13,20 @@ import Temp3 from '@/assets/bookings/step1/tattotemp/temp3.png'
 import { styled } from '@mui/material/styles'
 import Carousel from '@/components/molecules/Carousel' // Import Carousel tự viết
 import { useRouter } from 'next/navigation';
-
+import { useDispatch } from 'react-redux';
+import { setStyle } from '@/store/selectedPartSlice';
 // Nếu cần custom thêm MoleculesCard, bạn có thể tạo MoleculesCardCustom tại đây
 const MoleculesCardCustom = styled(MoleculesCard)({
   // Có thể override thêm style nếu cần
+  margin: '0 auto !important',
 })
 
 export default function BookingStep1() {
   // State lưu chỉ số của card active
   const [activeIndex, setActiveIndex] = useState(null)
   const section2Ref = useRef(null)
+  const dispatch = useDispatch();
+  const [loading, setLoading] = useState(false);
 
   // Mảng dữ liệu card
   const cardItems = [
@@ -55,6 +59,7 @@ export default function BookingStep1() {
   ]
   const router = useRouter();
   const goToStep2 = () => {
+    setLoading(true);
     router.push('/booking/step2');
   };
   // Hàm để cuộn xuống section2
@@ -91,9 +96,8 @@ export default function BookingStep1() {
             with us and let your skin be the canvas for art that lasts a lifetime.
             Book your tattoo session now and let the magic begin!
           </p>
-          <div className="mt-[40px]">
+          <div className="mt-[40px] flex justify-center">
             <Button 
-
               sx={{ px: '25px', py: '16px', fontSize: '30px' }}
               onClick={scrollToSection2}
             >
@@ -117,14 +121,14 @@ export default function BookingStep1() {
             to make your tattoo unique. But first we need a rough idea of ​​what you
             want to do.
           </p>
-          <div className="mt-[60px] flex justify-center">
+          <div className="mt-[60px] grid grid-cols-2 md:grid-cols-5 gap-4 justify-center">
             {cardItems.map((item, index) => (
               <MoleculesCardCustom
                 key={index}
                 image={item.image}
                 title={item.title}
                 onActionClick={() => {
-                  console.log(`Card ${item.title} clicked`)
+                  dispatch(setStyle(item.title));
                   // Cập nhật activeIndex (chỉ active 1 card duy nhất)
                   setActiveIndex(index)
                 }}
@@ -138,16 +142,29 @@ export default function BookingStep1() {
         {activeIndex !== null && (
           <>
             <div className="mt-[64px] flex justify-center">
-              <Button color="success" onClick={goToStep2}>
-                Next Step
+              <Button 
+                disabled={loading}
+                color="success" 
+                onClick={goToStep2}
+                sx={{ px: '25px', py: '16px', fontSize: '30px' }}
+              >
+                <div className='font-aeonik-bold font-extrabold capitalize'>
+                  Next Step
+                </div>
               </Button>
             </div>
           </>
         )}
         <div className="mt-[64px]">
           <Carousel 
+            showDots={false}
             items={carouselImages} 
           />
+          <style jsx global>{`
+            .react-multi-carousel-dot-list {
+              display: none !important;
+            }
+          `}</style>
         </div>
       </div>
     </>

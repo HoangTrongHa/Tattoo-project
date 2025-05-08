@@ -1,19 +1,22 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  value: null,
+  style: null,
+  bodyPart: null,
 };
 
 export const selectedPartSlice = createSlice({
   name: 'selectedPart',
   initialState,
   reducers: {
-    setSelectedPart: (state, action) => {
-      console.log('action.payload', action.payload);
-      state.value = action.payload;
+    setStyle: (state, action) => {
+      state.style = action.payload;
+    },
+    setBodyPart: (state, action) => {
+      state.bodyPart = action.payload;
     },
   },
 });
 
-export const { setSelectedPart } = selectedPartSlice.actions;
+export const { setStyle, setBodyPart } = selectedPartSlice.actions;
 export default selectedPartSlice.reducer;
