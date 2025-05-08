@@ -60,8 +60,11 @@ export default function Step3() {
       return;
     }
     setFormData(prev => ({ ...prev, emailRepeat: '' }));    
-    if (bodyPart === undefined || bodyPart === null) {
+    if (bodyPart === undefined || bodyPart === null || bodyPart === '') {
       router.push('/booking/step2');
+    }
+    if (style === undefined || style === null || style === '') {
+      router.push('/booking/step1');
     }
     try {
       const uploadResponse = await uploadFiles(formData.images);
