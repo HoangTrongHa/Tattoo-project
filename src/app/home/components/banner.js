@@ -3,8 +3,9 @@ import React from 'react';
 import Background from '@/assets/home/home-background.png';
 import Button from '@/components/atoms/Button';
 import ImageHandler from '@/components/organisms/ImageHandler';
-
+import { useRouter } from 'next/navigation';
 const Banner = ({ images }) => {
+  const router = useRouter();
   return (
     <div
       className="relative flex items-center justify-center w-full banner-home bg-[#455927] text-center text-white"
