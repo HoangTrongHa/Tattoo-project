@@ -45,7 +45,6 @@ export default function Step3() {
 
   const handleFileUpload = (files) => {
     setFormData(prev => ({ ...prev, images: files }));
-    console.log('Uploaded files:', files);
   };
 
   const handleBackClick = () => {
@@ -68,7 +67,6 @@ export default function Step3() {
     }
     try {
       const uploadResponse = await uploadFiles(formData.images);
-      console.log('uploadResponse', uploadResponse);
       if (uploadResponse.length > 0) {
         // Lấy id của các file upload thành công
         const imageIds = uploadResponse

@@ -6,7 +6,6 @@ import ImageZoom from '@/components/molecules/ImageZoom';
 const ImageHandler = ({ images }) => {
   const [hoveredImage, setHoveredImage] = useState(null);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-
   const handleMouseEnter = useCallback((src, index) => {
     setHoveredImage({ src, index });
   }, []);
@@ -23,7 +22,7 @@ const ImageHandler = ({ images }) => {
     const y = ((e.clientY - rect.top) / rect.height) * 100;
     setMousePosition({ x, y });
   }, [hoveredImage]);
-
+  if (!images || images.length === 0) return null;
   const getResponsiveClasses = (position) => {
     if (typeof position === 'string') return position;
     
@@ -35,9 +34,9 @@ const ImageHandler = ({ images }) => {
 
     return '';
   };
-
   return (
     <>
+    
       {images.map((image, index) => {
         const positionClasses = getResponsiveClasses(image.position);
         const isHovered = hoveredImage?.index === index;

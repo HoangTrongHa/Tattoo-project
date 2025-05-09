@@ -3,9 +3,18 @@ import React from 'react';
 import Background from '@/assets/home/home-background.png';
 import Button from '@/components/atoms/Button';
 import ImageHandler from '@/components/organisms/ImageHandler';
+import Loading from '@/components/atoms/Loading';
 import { useRouter } from 'next/navigation';
 const Banner = ({ images }) => {
   const router = useRouter();
+  // Thêm loading state
+  if (!images || images.length === 0) {
+    return (
+      <div className="relative flex items-center justify-center w-full banner-home bg-[#455927] text-center text-white">
+        <Loading />
+      </div>
+    );
+  }
   return (
     <div
       className="relative flex items-center justify-center w-full banner-home bg-[#455927] text-center text-white"
@@ -45,8 +54,10 @@ const Banner = ({ images }) => {
           </div>
         </div>
       </div>
-      <ImageHandler className='' images={images} />
-    </div>
+      {images && images.length > 0 && (
+        <ImageHandler images={images} />
+      )}    
+</div>
   );
 };
 

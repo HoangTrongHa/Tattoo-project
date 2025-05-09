@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import Button from '@/components/atoms/Button';
 import ImageHandler from '@/components/organisms/ImageHandler';
 import Image from 'next/image';
