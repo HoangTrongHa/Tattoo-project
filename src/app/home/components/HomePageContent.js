@@ -54,7 +54,7 @@ export default function HomePageContent() {
   const getAboutPositionForIndex = (index) => {
     const positions = [
       'absolute top-[107px] left-[20px] w-[8%] h-[auto]',
-      'absolute bottom-[135px] left-[20px] w-[24%] h-[auto]',
+      'absolute bottom-[135px] left-[20px] w-[15%] h-[auto]',
       'absolute top-[203px] right-[20px] w-[16%] h-[auto]',
       'absolute bottom-[274px] right-[20px] w-[8%] h-[auto]'
     ];

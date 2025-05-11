@@ -9,7 +9,7 @@ export default function About({ images }) {
     <h2 className="!text-[#455927] mt-12 md:mt-[315px]">ABOUT THE TEAM</h2>
     <div className="flex flex-col flex-wrap justify-center mt-8">
       <iframe
-        className="sm:w-full lg:w-[928px] 2xl:w-[1200px] sm:h-[300px] lg:h-[615px]"
+        className="sm:w-full lg:w-[928px] 2xl:w-[1200px] sm:h-[500px] lg:h-[615px] mx-auto"
         src="https://www.youtube.com/embed/jyIcTJiEl98?si=RKwXDgI4sYo3ilNt"
         title="YouTube video player"
         frameBorder="0"
